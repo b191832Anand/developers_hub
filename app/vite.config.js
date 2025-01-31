@@ -5,14 +5,11 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
-    outDir: 'dist',
+    outDir: 'dist', // Ensure output is in dist folder for Vercel
   },
   server: {
     host: true,
     port: 3000,
-  },
-  preview: {
-    port: 5000,
   },
   resolve: {
     alias: {
