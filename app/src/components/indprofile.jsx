@@ -95,7 +95,7 @@
                 <button
                   key={rating}
                   className={`p-2 rounded-full ${
-                    rating <= newRating ? 'bg-yellow-500' : 'bg-gray-300'
+                    rating <= newRating ? 'bg-yellow-500' : 'bg-gray-200'
                   }`}
                   onClick={() => handleRatingClick(rating)}
                 >

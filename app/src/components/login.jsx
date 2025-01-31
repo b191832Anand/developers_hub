@@ -28,7 +28,7 @@ const Login = () => {
                <p className='text-2xl text-center mb-4 font-semibold'>Login</p>
                <form className="flex flex-col space-y-4" onSubmit={submit}>
                    <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                   <input 
+                   <input   
                        type="email" 
                        id="email" 
                        className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500' 

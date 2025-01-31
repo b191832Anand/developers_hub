@@ -8,16 +8,12 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/api/reviewbyid
 Content-Type: application/json
-
-{
-    "id":"6794f2110034be97e0af36bc"
-}
-###
-post http://localhost:5000/api/allreview
-Content-Type: application/json
 x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OTRmMjExMDAzNGJlOTdlMGFmMzZiYyIsImlhdCI6MTczODIzNjgwMiwiZXhwIjoxNzM4MzIzMjAyfQ.CCkTolDyFVTlyG9pBLLO-ajICz31yWNMcb6N2IfK1rg
 
 {
-    "to_id":"6794f2110034be97e0af36bc",
-    "rating":"5"
+    "id":"67950ec2cc780fd8fd7942f5"
 }
+###
+get http://localhost:5000/api/alldata
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OTRmMjExMDAzNGJlOTdlMGFmMzZiYyIsImlhdCI6MTczODIzNjgwMiwiZXhwIjoxNzM4MzIzMjAyfQ.CCkTolDyFVTlyG9pBLLO-ajICz31yWNMcb6N2IfK1rg

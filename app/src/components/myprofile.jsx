@@ -63,7 +63,7 @@ const MyProfile = () => {
 
         <div className="mt-6">
           <h3 className="text-xl font-semibold text-center">Ratings Given by Others</h3>
-          {ratings.length>0?(
+          {ratings.length>0?( 
             ratings.map((rating, index) => (
               <div key={index} className="flex justify-between items-center mt-3">
                 <p className="font-semibold">{rating.from}</p>
