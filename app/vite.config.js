@@ -3,11 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    historyApiFallback: true, // Ensures client-side routing works
-  },
+  base: '/', // Ensures assets load correctly on Vercel
   build: {
-    outDir: 'dist', // Ensures output folder is correct
+    outDir: 'dist',
   },
-  base: './', // Fixes asset paths for deployment
+  server: {
+    host: true,
+  }
 });
