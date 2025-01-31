@@ -5,8 +5,8 @@
       "destination": "/"
     },
     {
-       "source":"/:path",
-       "destination":"https://developers-hub-eight.vercel.app/:path"
+       "source":"/api/:path",
+       "destination":"https://developers-hub-eight.vercel.app/api/:path"
     }
   ]
 }
