@@ -8,7 +8,7 @@ const middleware = async (req, res, next) => {
         if (!token) {
             return res.status(400).send("Token missing");
         }
-        const verified = jwt.verify(token, process.env.KEY);
+        const verified = jwt.verify(token,"1925112816");
         req.user = verified;
         next();
     } catch (e) {

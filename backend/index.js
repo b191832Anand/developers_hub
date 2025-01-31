@@ -12,11 +12,11 @@ const corsOption={
    origin:'*',
    methods:['GET,POST','PUT','DELETE'],
    allowedHeaders: ["Content-Type", "x-token"],
-   
+
 }
 app.use(cors(corsOption))
 mongoose
-  .connect(process.env.URL)
+  .connect("mongodb+srv://anand:1925112816@cluster0.qm0ie67.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("DB connected"))
   .catch((err) => console.error("DB connection error", err));
 
@@ -25,4 +25,4 @@ app.get("/", async (req, res) => {
     return res.status(200).send("jai shree ram");
 });
 
-app.listen(process.env.PORT, () => console.log("Server connected"));
+app.listen(5000, () => console.log("Server connected"));
