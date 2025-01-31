@@ -12,7 +12,7 @@ const MyProfile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const profile = await axios.get('http://localhost:5000/api/profile', {
+        const profile = await axios.get('https://developers-hub-urq9.vercel.app/api/profile', {
           headers: { 'x-token': localStorage.getItem('token') }
         });
         setUser(profile.data.profile);
@@ -23,7 +23,7 @@ const MyProfile = () => {
 
     const fetchMyReview = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/myreview', {
+        const response = await axios.get('https://developers-hub-urq9.vercel.app/api/myreview', {
           headers: { 'x-token': localStorage.getItem('token') }
         });
         setRatings(response.data);

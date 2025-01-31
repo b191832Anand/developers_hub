@@ -10,7 +10,7 @@
 
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get('http://localhost:5000/api/profile', {
+        const userResponse = await axios.get('https://developers-hub-urq9.vercel.app/api/profile', {
           headers: { 'x-token': localStorage.getItem('token') }
         });
         setUser(userResponse.data.profile);
@@ -21,7 +21,7 @@
 
     const fetchAllData = async () => {
       try {
-        const a = await axios.get('http://localhost:5000/api/allprofile', {
+        const a = await axios.get('https://developers-hub-urq9.vercel.app/api/allprofile', {
           headers: { 'x-token': localStorage.getItem('token') }
         });
         setUsers(a.data.profile);

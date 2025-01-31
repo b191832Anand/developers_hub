@@ -14,7 +14,7 @@
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const exist = await axios.get('http://localhost:5000/api/alldata',{
+          const exist = await axios.get('https://developers-hub-urq9.vercel.app/api/alldata',{
             headers: { 'x-token': localStorage.getItem('token') },
           });
           const val=exist.data.data.filter((exist)=>exist.to_id==id)
@@ -38,7 +38,7 @@
       }
     
       try {
-        await axios.post('http://localhost:5000/api/allreview', {
+        await axios.post('https://developers-hub-urq9.vercel.app/api/allreview', {
           to_id: id,
           rating: newRating,
         }, {
