@@ -18,7 +18,7 @@ const Signup = () => {
       toast.success("Signup successful");
       navigate('/login');
     } catch (error) {
-      toast.error('Signup failed');
+      toast.error(error.response.data);
     }
   };
 

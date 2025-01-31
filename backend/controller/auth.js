@@ -32,10 +32,10 @@ const login=async (req,res)=>{
          let {email,password}=req.body;
          const exist=await user.findOne({email:email});
          if(!exist){
-            return res.status(400).send("user not found")
+            return res.status(400).send("User not found")
          }
          if(exist.password!==password){
-            return res.status(400).send("invalid password")
+            return res.status(400).send("Invalid Credentials")
          }
          const token=jwt.sign({id:exist.id},"1925112816",{expiresIn:'1d'})
          return res.status(200).json({token})
