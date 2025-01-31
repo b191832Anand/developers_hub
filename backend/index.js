@@ -8,8 +8,11 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({
+  origin: ["YOUR FRONTEND LINK"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
 mongoose
   .connect(process.env.URL)
   .then(() => console.log("DB connected"))
