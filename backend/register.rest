@@ -1,0 +1,23 @@
+post http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+    "email":"anandkumarch2003@gmail.com",
+    "password":"12345"
+}
+###
+GET http://localhost:5000/api/reviewbyid
+Content-Type: application/json
+
+{
+    "id":"6794f2110034be97e0af36bc"
+}
+###
+post http://localhost:5000/api/allreview
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OTRmMjExMDAzNGJlOTdlMGFmMzZiYyIsImlhdCI6MTczODIzNjgwMiwiZXhwIjoxNzM4MzIzMjAyfQ.CCkTolDyFVTlyG9pBLLO-ajICz31yWNMcb6N2IfK1rg
+
+{
+    "to_id":"6794f2110034be97e0af36bc",
+    "rating":"5"
+}
