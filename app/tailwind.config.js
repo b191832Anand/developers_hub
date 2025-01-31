@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    './src/**/*.{html,js,jsx,ts,tsx}', // Paths to all files that will use Tailwind classes
+    './src/**/*.{html,js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {

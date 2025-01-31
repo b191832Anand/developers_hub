@@ -9,14 +9,14 @@ export default defineConfig({
   },
   server: {
     host: true,
-    port: 3000, // Ensures the dev server runs on a predictable port
+    port: 3000,
   },
   preview: {
-    port: 5000, // Ensures Vite preview runs on a specific port
+    port: 5000,
   },
   resolve: {
     alias: {
-      '@': '/src', // Allows easy imports using '@' instead of relative paths
+      '@': '/src',
     },
   }
 });
