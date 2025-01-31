@@ -5,6 +5,11 @@
         "src": "/(.*)", 
         "dest": "/index.html"
       }
+    ],
+    "rewrites":[{
+        "source":"/(.*)",
+        "dest":"/index.html"
+      }
     ]
   }
   
