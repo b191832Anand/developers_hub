@@ -1,0 +1,8 @@
+post http://localhost:5000/api/sign
+Content-Type: application/json
+
+{
+    "name":"princy",
+    "email":"princy@123",
+    "password":"123"
+}

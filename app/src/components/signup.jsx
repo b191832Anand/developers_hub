@@ -14,7 +14,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://developers-hub-urq9.vercel.app/pi/sign', { name, email, password });
+      await axios.post('https://developers-hub-urq9.vercel.app/api/sign', { name, email, password });
       toast.success("Signup successful");
       navigate('/login');
     } catch (error) {
