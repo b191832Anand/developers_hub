@@ -15,7 +15,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/app.jsx"
+      "destination": "/index.html"
     }
   ]
 }
