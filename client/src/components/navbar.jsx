@@ -20,12 +20,20 @@ const Navbar = () => {
       toast.info("You are already logged in.");
     }
   };
-  const dashboard=(e)=>{
-      if(!isLoggedIn){
-        e.preventDefault();
-        toast.info("Login to access the Dashboard")
-      }
-  }
+
+  const dashboard = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      toast.info("Login to access the Dashboard");
+    }
+  };
+
+  const handleLogout = (e) => {
+    localStorage.removeItem('token');
+    navigate('/login');  // Ensure navigation happens before token removal
+    toast.success("Logged out successfully!");
+  };
+
   return (
     <nav className="bg-blue-500 p-3 text-white">
       <div className="flex justify-between items-center">
@@ -38,6 +46,9 @@ const Navbar = () => {
             </>
           )}
           <Link to="/dashboard" className="hover:underline" onClick={dashboard}>Dashboard</Link>
+          {isLoggedIn && (
+            <button className="hover:underline" onClick={handleLogout}>Logout</button>
+          )}
         </div>
       </div>
     </nav>
