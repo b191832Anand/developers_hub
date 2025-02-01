@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      {(location.pathname === '/' || location.pathname==='/login' || location.pathname==='/signup') && <Navbar />}
+       <Navbar />
       <ToastContainer position='top-center' autoClose={2000}/>  
       <Routes>
         <Route path='/' element={<Home />} />
