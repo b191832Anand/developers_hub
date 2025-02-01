@@ -62,8 +62,8 @@ const Dashboard = () => {
                   className="w-10 h-10 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300"
                 />
                 <div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{truncateText(user.name, 15)}</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 15)}</p>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{truncateText(user.name, 10)}</h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 10)}</p>
                 </div>
               </div>
               <div className="flex justify-center">
@@ -99,8 +99,8 @@ const Dashboard = () => {
                       className="w-10 h-10 sm:w-24 sm:h-24 rounded-full"
                     />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base md:text-lg ">{truncateText(user.name, 15)}</p>
-                      <p className="text-sm sm:text-base md:text-lg text-gray-600 ">{truncateText(user.email, 15)}</p> 
+                      <p className="font-semibold text-sm sm:text-base md:text-lg ">{truncateText(user.name, 10)}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-600 ">{truncateText(user.email, 10)}</p> 
                     </div>
                   </div>
                   <div>
