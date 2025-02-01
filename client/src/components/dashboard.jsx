@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
-import {toast} from 'react-toastify'
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -40,8 +41,12 @@ const Dashboard = () => {
     toast.success("Logged out successfully!");
     navigate('/login');
   };
-  
+
   const defaultImage = "https://www.w3schools.com/w3images/avatar2.png";
+
+  const truncateText = (text, length) => {
+    return text && text.length > length ? text.substring(0, length) + '...' : text;
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -57,8 +62,8 @@ const Dashboard = () => {
                   className="w-10 h-10 sm:w-24 sm:h-24 rounded-full border-2 border-gray-300"
                 />
                 <div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{user.name}</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-600">{user.email}</p>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{truncateText(user.name, 20)}</h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 20)}</p>
                 </div>
               </div>
               <div className="flex justify-center">
@@ -81,7 +86,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-center mb-4">Remaining Users</h2>
           <div>
@@ -95,7 +99,8 @@ const Dashboard = () => {
                       className="w-10 h-10 sm:w-24 sm:h-24 rounded-full"
                     />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base md:text-lg">{user.name}</p>
+                      <p className="font-semibold text-sm sm:text-base md:text-lg ">{truncateText(user.name, 20)}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-600 ">{truncateText(user.email, 20)}</p> 
                     </div>
                   </div>
                   <div>
@@ -109,7 +114,6 @@ const Dashboard = () => {
                    </Link>
                   </div>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600">{user.email}</p> 
               </div>
             ))}
           </div>
