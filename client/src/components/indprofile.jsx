@@ -7,8 +7,8 @@ const MyProfile = () => {
   const navigate = useNavigate();
   const [ratings, setRatings] = useState([]);
   const { name, email, id } = useParams();
-  const [newRating, setNewRating] = useState(0);
-
+  const [newRating, setNewRating] = useState(0);  
+  const [user,setuser]=useState();
   const image = "https://www.w3schools.com/w3images/avatar2.png";
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const MyProfile = () => {
         setRatings(val);
       } catch (e) {
         console.log(e);
-        alert('Error fetching data.');
+        toast.error('Error fetching data.');
       }
     };
     fetchData();

@@ -1,9 +1,6 @@
-post http://localhost:5000/api/sign
+post http://localhost:5000/api/individual
 Content-Type: application/json
 
 {
-    "name":"abhi",
-    "email":"abhi@123",
-    "password":"123",
-    "skills":"c++,java,python,mern"
+    "id":"67950ec2cc780fd8fd7942f5"
 }

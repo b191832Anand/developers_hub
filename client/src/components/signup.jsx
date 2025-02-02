@@ -8,6 +8,7 @@
     const [name, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [Skills,setSkills]=useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -37,6 +38,19 @@
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
                 placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="skills" className='block text-sm font-semibold text-gray-600'>Skills</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={name}
+                onChange={(e) => setSkills(e.target.value)}
+                className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
+                placeholder="Separate Skills using comma(,)"
                 required
               />
             </div>

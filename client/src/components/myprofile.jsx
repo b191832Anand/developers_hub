@@ -18,6 +18,7 @@ const MyProfile = () => {
         setUser(profile.data.profile);
       } catch (error) {
         toast.error("Failed to fetch profile");
+        console.error("Profile fetch error:", error); // Log the error for debugging
       }
     };
 
@@ -29,6 +30,9 @@ const MyProfile = () => {
         setRatings(response.data);
       } catch (error) {
         toast.error("Failed to fetch reviews");
+         console.error("Review fetch error:", error); // Log the error
+      } finally {
+        setLoading(false); // Set loading to false after data fetching (success or failure)
       }
     };
 
@@ -41,8 +45,8 @@ const MyProfile = () => {
   };
 
   const image = "https://www.w3schools.com/w3images/avatar2.png";
-
-  return(
+    
+  return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <button
@@ -58,12 +62,22 @@ const MyProfile = () => {
             className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-gray-300"
           />
         </div>
-        <h2 className="text-2xl font-semibold text-center mb-2">{user?.name}</h2>
-        <p className="text-center text-gray-600">{user?.email}</p>
-
+        <h2 className="text-2xl font-semibold text-center mb-2">{user.name}</h2> {/* No need for optional chaining now */}
+        <p className="text-center text-gray-600">{user.email}</p>
+        {user.skills && user.skills.length > 0 && (
+           <div className='flex justify-center items-center space-x-2'>
+              <ul className="mt-2"> {/* Added some margin top */}
+            {user.skills.split(',').map((skill, index) => (
+              <li key={index} className='bg-blue-100 text-blue-600 px-2 py-1 rounded mr-2 inline-block mt-1'>
+                {skill.trim()} {/* Trim whitespace from skills */}
+              </li>
+            ))}
+          </ul>
+           </div>
+        )}
         <div className="mt-6">
           <h3 className="text-xl font-semibold text-center">Ratings Given by Others</h3>
-          {ratings.length>0?( 
+          {ratings.length > 0 ? (
             ratings.map((rating, index) => (
               <div key={index} className="flex justify-between items-center mt-3">
                 <p className="font-semibold">{rating.from}</p>
@@ -78,7 +92,9 @@ const MyProfile = () => {
                 <span className="ml-2 text-gray-600">{rating.rating} / 5</span>
               </div>
             ))
-          ):(<p className="text-center text-gray-600">No ratings yet.</p>)}
+          ) : (
+            <p className="text-center text-gray-600">No ratings yet.</p>
+          )}
         </div>
       </div>
     </div>

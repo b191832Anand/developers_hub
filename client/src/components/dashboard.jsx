@@ -51,10 +51,11 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto p-8"> 
+        {/* Profile Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
           <h2 className="text-2xl font-bold text-center mb-4">Profile</h2>
           {user && (
-            <div className="flex justify-center items-center space-x-6">
+            <div className="flex flex-col items-center space-y-4">
               <div className="flex items-center space-x-4">
                 <img
                   src={user.profileImage || defaultImage}
@@ -66,32 +67,42 @@ const Dashboard = () => {
                   <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 10)}</p>
                 </div>
               </div>
-              <div className="flex justify-center">
-               <Link to='/myprofile'> <button
-                  type="button"
-                  className="mt-2 p-1 sm:p-2 bg-blue-500 rounded-lg text-white"
-                >
-                  My Profile
-                </button></Link>
+              {/* Display Skills */}
+              <div>
+                <h4 className="text-lg font-semibold">Skills:</h4>
+                <ul className="flex flex-wrap gap-1">
+                  {user.skills?.split(',').map((val, index) => (
+                    <li key={index} className="bg-blue-100 px-2 py-1 rounded-lg text-blue-700">
+                      {val.trim()}
+                    </li>
+                  ))}
+                </ul>
               </div>
+              <Link to='/myprofile'>
+                <button className="mt-2 p-2 bg-blue-500 rounded-lg text-white">
+                  My Profile
+                </button>
+              </Link>
             </div>
           )}
           <div className="mt-4 text-center">
             <button
               onClick={handleLogout}
-              className="bg-red-500 text-white px-2 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-red-600"
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
             >
               Logout
             </button>
           </div>
         </div>
 
+        {/* Remaining Users Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-center mb-4">Remaining Users</h2>
           <div>
             {users.map((user, index) => (
               <div key={user._id} className="bg-gray-200 p-4 rounded-lg mb-6">
                 <div className="flex justify-between items-center space-x-6">
+                   <div>
                   <div className="flex items-center space-x-4">
                     <img
                       src={defaultImage}
@@ -99,25 +110,42 @@ const Dashboard = () => {
                       className="w-10 h-10 sm:w-24 sm:h-24 rounded-full"
                     />
                     <div>
+<<<<<<< HEAD
                       <p className="font-semibold text-sm sm:text-base md:text-lg ">{truncateText(user.name, 10)}</p>
                       <p className="text-sm sm:text-base md:text-lg text-gray-600 ">{truncateText(user.email, 10)}</p> 
+=======
+                      <p className="font-semibold text-sm sm:text-base md:text-lg">{truncateText(user.name, 20)}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 20)}</p>
+                    <div className="mt-2">
+                    <h4 className="text-lg font-semibold ">Skills:</h4>
+                    <ul className="flex  gap-1">
+                      {user.skills?.split(',').map((val, idx) => (
+                        <li key={idx} className="  px-2 py-1 rounded-lg bg-blue-100 text-blue-700">
+                          {val.trim()}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+>>>>>>> 889d7e9 (lastttt)
                     </div>
                   </div>
-                  <div>
-                   <Link to={`/indprofile/${user.name}/${user.email}/${user._id}`}>
-                   <button
+                  </div>
+                  <div className='flex justify-center items-center mt-4'>
+                  <Link to={`/indprofile/${user.name}/${user.email}/${user._id}`}>
+                    <button
                       type="button"
-                      className="mt-2 p-1 sm:p-2 bg-blue-500 rounded-lg text-white"
+                      className="p-2 bg-blue-500 rounded-lg text-white"
                     >
                       View Profile
                     </button>
-                   </Link>
-                  </div>
+                  </Link>
+                </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );

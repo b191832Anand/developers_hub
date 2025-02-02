@@ -113,14 +113,5 @@ const alldata=async(req,res)=>{
         return res.status(200).send("error")
     }
 }
-const individual=async(req,res)=>{
-    try{
-        const id=req.body;
-        const token=jwt.sign({id:id},"1925112816",{expiresIn:'1d'})
-        return res.status(200).json({token})
-    }
-    catch(e){
-        return res.status(400).json({error:e})
-    }
-}
-export {sign,login,allprofile,profile,allreview,myreview,alldata,individual};
+
+export {sign,login,allprofile,profile,allreview,myreview,alldata};
