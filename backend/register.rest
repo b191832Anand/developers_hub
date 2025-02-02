@@ -2,7 +2,8 @@ post http://localhost:5000/api/sign
 Content-Type: application/json
 
 {
-    "name":"princy",
-    "email":"princy@123",
-    "password":"123"
+    "name":"abhi",
+    "email":"abhi@123",
+    "password":"123",
+    "skills":"c++,java,python,mern"
 }

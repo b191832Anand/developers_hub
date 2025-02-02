@@ -6,7 +6,7 @@ import review from "../model/review.js"
 dotenv.config()
 const sign = async (req, res) => { 
     try {
-        let { name, email, password } = req.body;
+        let { name, email, password,skills } = req.body;
 
         const exist = await user.findOne({ email: email });
         if (exist) {
@@ -16,7 +16,8 @@ const sign = async (req, res) => {
         const NewUser = new user({
             name: name,
             email: email,
-            password: password
+            password: password,
+            skills:skills
         });
 
         await NewUser.save();
@@ -112,4 +113,14 @@ const alldata=async(req,res)=>{
         return res.status(200).send("error")
     }
 }
-export {sign,login,allprofile,profile,allreview,myreview,alldata};
+const individual=async(req,res)=>{
+    try{
+        const id=req.body;
+        const token=jwt.sign({id:id},"1925112816",{expiresIn:'1d'})
+        return res.status(200).json({token})
+    }
+    catch(e){
+        return res.status(400).json({error:e})
+    }
+}
+export {sign,login,allprofile,profile,allreview,myreview,alldata,individual};
