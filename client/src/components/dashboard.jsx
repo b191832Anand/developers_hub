@@ -102,44 +102,40 @@ const Dashboard = () => {
             {users.map((user, index) => (
               <div key={user._id} className="bg-gray-200 p-4 rounded-lg mb-6">
                 <div className="flex justify-between items-center space-x-6">
-                   <div>
-                  <div className="flex items-center space-x-4">
-                    <img
-                      src={defaultImage}
-                      alt="User"
-                      className="w-10 h-10 sm:w-24 sm:h-24 rounded-full"
-                    />
-                    <div>
-<<<<<<< HEAD
-                      <p className="font-semibold text-sm sm:text-base md:text-lg ">{truncateText(user.name, 10)}</p>
-                      <p className="text-sm sm:text-base md:text-lg text-gray-600 ">{truncateText(user.email, 10)}</p> 
-=======
-                      <p className="font-semibold text-sm sm:text-base md:text-lg">{truncateText(user.name, 20)}</p>
-                      <p className="text-sm sm:text-base md:text-lg text-gray-600">{truncateText(user.email, 20)}</p>
-                    <div className="mt-2">
-                    <h4 className="text-lg font-semibold ">Skills:</h4>
-                    <ul className="flex  gap-1">
-                      {user.skills?.split(',').map((val, idx) => (
-                        <li key={idx} className="  px-2 py-1 rounded-lg bg-blue-100 text-blue-700">
-                          {val.trim()}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
->>>>>>> 889d7e9 (lastttt)
+                  <div>
+                    <div className="flex items-center space-x-4">
+                      <img
+                        src={defaultImage}
+                        alt="User"
+                        className="w-10 h-10 sm:w-24 sm:h-24 rounded-full"
+                      />
+                      <div>
+                        <p className="font-semibold text-sm sm:text-base md:text-lg">
+                          {truncateText(user.name, 20)}
+                        </p>
+                        <p className="text-sm sm:text-base md:text-lg text-gray-600">
+                          {truncateText(user.email, 20)}
+                        </p>
+                        <div className="mt-2">
+                          <h4 className="text-lg font-semibold">Skills:</h4>
+                          <ul className="flex gap-1">
+                            {user.skills?.split(',').map((val, idx) => (
+                              <li key={idx} className="px-2 py-1 rounded-lg bg-blue-100 text-blue-700">
+                                {val.trim()}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  </div>
                   <div className='flex justify-center items-center mt-4'>
-                  <Link to={`/indprofile/${user.name}/${user.email}/${user._id}`}>
-                    <button
-                      type="button"
-                      className="p-2 bg-blue-500 rounded-lg text-white"
-                    >
-                      View Profile
-                    </button>
-                  </Link>
-                </div>
+                    <Link to={`/indprofile/${user.name}/${user.email}/${user._id}`}>
+                      <button type="button" className="p-2 bg-blue-500 rounded-lg text-white">
+                        View Profile
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
