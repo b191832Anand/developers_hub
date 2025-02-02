@@ -26,7 +26,7 @@ const MyProfile = () => {
     };
     const fetchskills=async()=>{
        try{
-            const vals=await axios.get(`http://localhost:5000/api/detailsbyid/${id}`)
+            const vals=await axios.get(`https://developers-hub-urq9.vercel.app/api/detailsbyid/${id}`)
             setuser(vals.data);
        }
        catch(e){
