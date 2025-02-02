@@ -44,7 +44,7 @@ const MyProfile = () => {
 
   const image = "https://www.w3schools.com/w3images/avatar2.png";
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+    <div className="min-h-screen m-5 bg-gray-100 flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <button
           onClick={handleBackToDashboard}
