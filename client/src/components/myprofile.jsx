@@ -8,6 +8,7 @@ const MyProfile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [ratings, setRatings] = useState([]);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +31,7 @@ const MyProfile = () => {
         setRatings(response.data);
       } catch (error) {
         toast.error("Failed to fetch reviews");
-         console.error("Review fetch error:", error); // Log the error
+        console.error("Review fetch error:", error); // Log the error
       } finally {
         setLoading(false); // Set loading to false after data fetching (success or failure)
       }
@@ -46,6 +47,14 @@ const MyProfile = () => {
 
   const image = "https://www.w3schools.com/w3images/avatar2.png";
     
+  if (loading) {
+    return <div className="min-h-screen flex justify-center items-center">Loading...</div>; // Show loading message while fetching
+  }
+
+  if (!user) {
+    return <div className="min-h-screen flex justify-center items-center">Profile not available.</div>; // Handle case where user data is not found
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -62,17 +71,17 @@ const MyProfile = () => {
             className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-gray-300"
           />
         </div>
-        <h2 className="text-2xl font-semibold text-center mb-2">{user.name}</h2> {/* No need for optional chaining now */}
+        <h2 className="text-2xl font-semibold text-center mb-2">{user.name}</h2>
         <p className="text-center text-gray-600">{user.email}</p>
         {user.skills && user.skills.length > 0 && (
            <div className='flex justify-center items-center space-x-2'>
-              <ul className="mt-2"> {/* Added some margin top */}
-            {user.skills.split(',').map((skill, index) => (
-              <li key={index} className='bg-blue-100 text-blue-600 px-2 py-1 rounded mr-2 inline-block mt-1'>
-                {skill.trim()} {/* Trim whitespace from skills */}
-              </li>
-            ))}
-          </ul>
+              <ul className="mt-2">
+                {user.skills.split(',').map((skill, index) => (
+                  <li key={index} className='bg-blue-100 text-blue-600 px-2 py-1 rounded mr-2 inline-block mt-1'>
+                    {skill.trim()}
+                  </li>
+                ))}
+              </ul>
            </div>
         )}
         <div className="mt-6">
