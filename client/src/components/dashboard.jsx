@@ -122,7 +122,7 @@ const Dashboard = () => {
                      </div>
                 </div>
                 <div className='flex justify-center items-center mt-4'>
-                    <Link to={`/indprofile/${user.name}/${user.email}/${user._id}`}>
+                    <Link to={`/indprofile/${user._id}`}>
                       <button type="button" className="p-1 sm:p-2 bg-blue-500 rounded-lg text-white">
                         View Profile
                       </button>

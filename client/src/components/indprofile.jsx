@@ -6,9 +6,9 @@ import { toast } from 'react-toastify';
 const MyProfile = () => {
   const navigate = useNavigate();
   const [ratings, setRatings] = useState([]);
-  const { name, email, id } = useParams();
+  const {id} = useParams();
   const [newRating, setNewRating] = useState(0);  
-  const [user,setuser]=useState();
+  const [user,setuser]=useState([]);
   const image = "https://www.w3schools.com/w3images/avatar2.png";
 
   useEffect(() => {
@@ -24,13 +24,21 @@ const MyProfile = () => {
         toast.error('Error fetching data.');
       }
     };
+    const fetchskills=async()=>{
+       try{
+            const vals=await axios.get(`http://localhost:5000/api/detailsbyid/${id}`)
+            setuser(vals.data);
+       }
+       catch(e){
+        toast.error(e.message)
+       }
+    }
     fetchData();
+    fetchskills();
   }, []);
-
   const handleRatingClick = (rating) => {
     setNewRating(rating);
   };
-
   const handleSubmitRating = async () => {
     if (newRating < 1 || newRating > 5) {
       toast.warn('Please select a rating between 1 and 5.');
@@ -55,7 +63,8 @@ const MyProfile = () => {
   const handleBackToDashboard = () => {
     navigate('/dashboard');
   };
-
+  console.log(user.skills);
+  
   return (
     <div className="min-h-screen m-5 bg-gray-100 flex flex-col justify-center items-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -72,9 +81,16 @@ const MyProfile = () => {
             className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-gray-300"
           />
         </div>
-        <h2 className="text-2xl font-semibold text-center mb-2">{name}</h2>
-        <p className="text-center text-gray-600">{email}</p>
-
+        <h2 className="text-2xl font-semibold text-center mb-2">{user.name}</h2>
+        <p className="text-center text-gray-600 mb-2">{user.email}</p>
+         <p className='text-center font-semibold'>Skills</p>
+         {user.skills && user.skills.length>0 &&(
+            <ul className='flex justify-center items-center space-x-2'>
+              {user.skills.split(',').map((skill)=>(
+                 <li className='bg-blue-100 text-blue-600 px-2 py-1 rounded-lg inline-block mt-1'>{skill}</li>
+              ))}
+            </ul>
+         )}
         <div className="mt-6 text-center">
           <p className="text-lg font-semibold mb-2">Rate this profile</p>
           <div className="flex justify-center items-center space-x-1">

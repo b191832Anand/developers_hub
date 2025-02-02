@@ -22,7 +22,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/myprofile' element={<Myprofile/>}/>
-        <Route path='/indprofile/:name/:email/:id' element={<Indprofile/>}/>
+        <Route path='/indprofile/:id' element={<Indprofile/>}/>
       </Routes>
     </div>
   );

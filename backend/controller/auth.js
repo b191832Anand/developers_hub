@@ -113,5 +113,14 @@ const alldata=async(req,res)=>{
         return res.status(200).send("error")
     }
 }
-
-export {sign,login,allprofile,profile,allreview,myreview,alldata};
+const detailsbyid=async(req,res)=>{
+    try{
+         const val=await user.findById(req.params.id);
+         return res.status(200).json(val);
+    }
+    catch(e){
+        console.log(e);
+        return res.status(400).send("no user found");
+    }
+}
+export {sign,login,allprofile,profile,allreview,myreview,alldata,detailsbyid};
