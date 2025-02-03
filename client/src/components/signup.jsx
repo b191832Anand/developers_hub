@@ -2,20 +2,20 @@
   import axios from 'axios';
   import { useNavigate } from 'react-router-dom';
   import { toast } from 'react-toastify';
-  import { FaEye, FaEyeSlash } from 'react-icons/fa';
+  import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 
   const Signup = () => {
     const [name, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [Skills,setSkills]=useState('');
+    const [skills,setSkills]=useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        await axios.post('https://developers-hub-urq9.vercel.app/api/sign', { name, email, password });
+        await axios.post('https://developers-hub-urq9.vercel.app/api/sign', { name, email, password,skills});
         toast.success("Signup successful");
         navigate('/login');
       } catch (error) {
@@ -47,7 +47,7 @@
                 type="text"
                 id="skills"
                 name="skills"
-                value={Skills}
+                value={skills}
                 onChange={(e) => setSkills(e.target.value)}
                 className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
                 placeholder="Separate Skills using comma(,)"
