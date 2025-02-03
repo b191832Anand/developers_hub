@@ -68,7 +68,7 @@ const Dashboard = () => {
                 <h4 className="text-lg font-semibold">Skills:</h4>
                 <ul className="flex flex-wrap gap-1">
                   {user.skills?.split(',').map((val, index) => (
-                    <li key={index} className="bg-blue-100 px-2 py-1 rounded-lg text-blue-700">
+                    <li key={index} className="w-full bg-blue-100 px-2 py-1 rounded-lg text-blue-700">
                       {val.trim()}
                     </li>
                   ))}
