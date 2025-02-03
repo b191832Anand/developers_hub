@@ -38,7 +38,7 @@ const login=async (req,res)=>{
          if(exist.password!==password){
             return res.status(400).send("Invalid Credentials")
          }
-         const token=jwt.sign({id:exist.id},"1925112816",{expiresIn:'1d'})
+         const token=jwt.sign({id:exist.id},"1925112816",{expiresIn:'1h'})
          return res.status(200).json({token})
     }
     catch (e) {
