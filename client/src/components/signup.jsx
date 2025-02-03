@@ -45,9 +45,9 @@
               <label htmlFor="skills" className='block text-sm font-semibold text-gray-600'>Skills</label>
               <input
                 type="text"
-                id="username"
-                name="username"
-                value={name}
+                id="skills"
+                name="skills"
+                value={Skills}
                 onChange={(e) => setSkills(e.target.value)}
                 className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
                 placeholder="Separate Skills using comma(,)"
